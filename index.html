@@ -5,93 +5,79 @@
   <title>Barışaq?</title>
   <style>
     body {
-      margin: 0;
       background-color: #000;
       color: #fff;
-      font-family: 'Segoe UI', sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      overflow: hidden;
+      font-family: Arial, sans-serif;
       text-align: center;
+      padding-top: 100px;
     }
 
     h1 {
-      font-size: 24px;
+      font-size: 28px;
       margin-bottom: 40px;
     }
 
     .buttons {
       display: flex;
-      gap: 20px;
+      justify-content: center;
+      gap: 20px; /* Butonlar arasındakı məsafə */
     }
 
-    button {
+    .buttons button {
       padding: 15px 30px;
-      border: none;
-      border-radius: 10px;
       font-size: 16px;
+      border: none;
+      border-radius: 8px;
       cursor: pointer;
-      transition: 0.2s ease;
+      transition: 0.3s;
     }
 
-    #yesBtn {
+    .yes-btn {
       background-color: #4caf50; /* Yaşıl */
       color: white;
     }
 
-    #noBtn {
+    .yes-btn:hover {
+      background-color: #45a049;
+    }
+
+    .no-btn {
       background-color: #f44336; /* Qırmızı */
       color: white;
+      position: relative;
+    }
+
+    .no-btn:hover {
       position: absolute;
-    }
-
-    #videoContainer {
-      margin-top: 30px;
-      display: none;
-    }
-
-    iframe {
-      width: 90vw;
-      max-width: 560px;
-      height: 315px;
-      border: none;
-      border-radius: 10px;
+      top: calc(50% - 20px);
+      left: calc(10% + (Math.random() * 80%));
+      transition: 0.3s;
     }
   </style>
 </head>
 <body>
-
   <h1>Sənin incitdiyimi bilirəm. Barışa bilərik, gözəl qız?</h1>
 
   <div class="buttons">
-    <button id="yesBtn">Aha olar</button>
-    <button id="noBtn">Olmaz</button>
+    <button class="yes-btn" onclick="playVideo()">Aha olar</button>
+    <button class="no-btn" onmouseover="moveButton(this)">Olmaz</button>
   </div>
 
-  <div id="videoContainer">
-    <p>💖 Mənim sənin üçün seçdiyim bu video:</p>
-    <iframe id="videoFrame" src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID?autoplay=1" allow="autoplay"></iframe>
+  <div id="video" style="margin-top: 40px; display: none;">
+    <!-- Buraya istədiyin videonun iframe embed kodunu əlavə edə bilərsən -->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEONUN_ID" frameborder="0" allowfullscreen></iframe>
   </div>
 
   <script>
-    const noBtn = document.getElementById("noBtn");
-    const yesBtn = document.getElementById("yesBtn");
-    const videoContainer = document.getElementById("videoContainer");
+    function moveButton(btn) {
+      const randomX = Math.random() * 300 - 150; // -150px to +150px
+      const randomY = Math.random() * 150 - 75;
+      btn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+    }
 
-    yesBtn.onclick = () => {
-      videoContainer.style.display = "block";
-    };
-
-    noBtn.onmouseenter = () => {
-      const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
-      const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
-      noBtn.style.left = x + "px";
-      noBtn.style.top = y + "px";
-    };
+    function playVideo() {
+      document.getElementById('video').style.display = 'block';
+    }
   </script>
-
 </body>
 </html>
