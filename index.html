@@ -77,8 +77,13 @@ top: 10px;
       btn.style.top = newTop + "px";  
     }  
   
-    function playVideo() {  
-      document.getElementById('video').style.display = 'block';  
-    }  
+  function playVideo() {
+    // Qırmızı düyməni gizlə
+    document.querySelector(".no-btn").style.display = "none";
+
+    // Videonu göstər
+    document.getElementById('video').style.display = 'block';
+  }
+</script>
   </script>  </body>  
 </html>
