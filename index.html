@@ -18,8 +18,9 @@
     }
 
     .buttons {
-      position: relative;
-      height: 200px; /* Hərəkət üçün sahə */
+      display: flex;
+      justify-content: center;
+      gap: 20px;
     }
 
     .buttons button {
@@ -29,26 +30,21 @@
       border-radius: 8px;
       cursor: pointer;
       transition: 0.3s;
-      position: absolute;
+      width: 120px;
+      height: 45px;
+      position: relative;
     }
 
     .yes-btn {
-  background-color: #4caf50;
-  color: white;
-  width: 100px;   /* eni */
-  height: 45px;   /* uzunluğu */
-  left: 375px;
-  top: 10px;
-}
+  ba.yes-btn {
+      background-color: #4caf50;
+      color: white;
+    }
 
-.no-btn {
-  background-color: #f44336;
-  color: white;
-  width: 100px;
-  height: 45px;
-  left: 500px;
-  top: 10px;
-}
+    .no-btn {
+      background-color: #f44336;
+      color: white;
+    }
   </style>
 </head>
 <body>
