@@ -18,9 +18,8 @@
     }
 
     .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 20px; /* Butonlar arasındakı məsafə */
+      position: relative;
+      height: 200px; /* Hərəkət üçün sahə */
     }
 
     .buttons button {
@@ -30,28 +29,23 @@
       border-radius: 8px;
       cursor: pointer;
       transition: 0.3s;
+      position: absolute;
     }
 
     .yes-btn {
-      background-color: #4caf50; /* Yaşıl */
+      background-color: #4caf50;
       color: white;
-    }
-
-    .yes-btn:hover {
-      background-color: #45a049;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 0;
     }
 
     .no-btn {
-      background-color: #f44336; /* Qırmızı */
+      background-color: #f44336;
       color: white;
-      position: relative;
-    }
-
-    .no-btn:hover {
-      position: absolute;
-      top: calc(50% - 20px);
-      left: calc(10% + (Math.random() * 80%));
-      transition: 0.3s;
+      top: 100px;
+      left: 50%;
+      transform: translateX(-50%);
     }
   </style>
 </head>
@@ -60,19 +54,31 @@
 
   <div class="buttons">
     <button class="yes-btn" onclick="playVideo()">Aha olar</button>
-    <button class="no-btn" onmouseover="moveButton(this)">Olmaz</button>
+    <button class="no-btn" onclick="moveButton(this)">Olmaz</button>
   </div>
 
   <div id="video" style="margin-top: 40px; display: none;">
-    <!-- Buraya istədiyin videonun iframe embed kodunu əlavə edə bilərsən -->
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEONUN_ID" frameborder="0" allowfullscreen></iframe>
+    <!-- Videonun linkini buraya yerləşdir -->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/YERINƏ_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
   </div>
 
   <script>
     function moveButton(btn) {
-      const randomX = Math.random() * 300 - 150; // -150px to +150px
-      const randomY = Math.random() * 150 - 75;
-      btn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+      const container = document.querySelector('.buttons');
+      const containerWidth = container.offsetWidth;
+      const containerHeight = container.offsetHeight;
+
+      const btnWidth = btn.offsetWidth;
+      const btnHeight = btn.offsetHeight;
+
+      const maxLeft = containerWidth - btnWidth;
+      const maxTop = containerHeight - btnHeight;
+
+      const newLeft = Math.random() * maxLeft;
+      const newTop = Math.random() * maxTop;
+
+      btn.style.left = newLeft + "px";
+      btn.style.top = newTop + "px";
     }
 
     function playVideo() {
