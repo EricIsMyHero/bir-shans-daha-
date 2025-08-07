@@ -1,95 +1,92 @@
 <!DOCTYPE html>
-<html lang="az">  
-<head>  
-  <meta charset="UTF-8">  
-  <title>Barışaq?</title>  
-  <style>  
-    body {  
-      background-color: #000;  
-      color: #fff;  
-      font-family: Arial, sans-serif;  
-      text-align: center;  
-      padding-top: 100px;  
-    }  h1 {  
-  font-size: 30px;  
-  margin-bottom: 40px;  
-}  
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <title>Barışaq?</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+    }
 
-.buttons {  
-  position: relative;  
-  height: 1500px; /* Hərəkət üçün sahə */  
-}  
+    h1 {
+      font-size: 30px;
+      margin-bottom: 40px;
+    }
 
-.buttons button {  
-  padding: 15px 30px;  
-  font-size: 16px;  
-  border: none;  
-  border-radius: 8px;  
-  cursor: pointer;  
-  transition: 0.3s;  
-  position: absolute;  
-}  
+    .buttons {
+      margin-top: 30px;
+    }
 
-.yes-btn {
+    .buttons button {
+      padding: 15px 30px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin: 0 10px;
+    }
 
-background-color: #4caf50;
-color: white;
-width: 100px; 
-height: 55px;   
-left: 375px;
-top: 10px;
-}
+    .yes-btn {
+      background-color: #4caf50;
+      color: white;
+    }
 
-.no-btn {
-background-color: #f44336;
-color: white;
-width: 100px;
-height: 55px;
-left: 500px;
-top: 10px;
-}
-</style>
+    .no-btn {
+      background-color: #f44336;
+      color: white;
+    }
 
-</head>  
-<body>  
+    #video {
+      margin-top: 40px;
+      display: none;
+    }
+
+    video {
+      max-width: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #c2185b;
+    }
+  </style>
+</head>
+<body>
   <h1>Səni incitdiyimi bilirəm. Barışa bilərik, gözəl qız?</h1>
 
-<div class="buttons">
-  <button class="yes-btn" onclick="playVideo()">Təbii ki</button>
-  <button class="no-btn" onclick="moveButton(this)">Olmaz</button>
-</div>
+  <div class="buttons">
+    <button class="yes-btn" onclick="playVideo()">Təbii ki</button>
+    <button class="no-btn" onclick="moveButton(this)">Olmaz</button>
+  </div>
 
-<div id="video" style="margin-top: 40px; display: none;">
-  <!-- Öz videonun faylını buraya yerləşdir -->
-  <video width="560" height="315" controls autoplay>
-    <source src="video.mp4" type="video/mp4">
-    Brauzerin bu videonu dəstəkləmir.
-  </video>
-</div>    <script>  
-    function moveButton(btn) {  
-      const container = document.querySelector('.buttons');  
-      const containerWidth = container.offsetWidth;  
-      const containerHeight = container.offsetHeight;  
-  
-      const btnWidth = btn.offsetWidth;  
-      const btnHeight = btn.offsetHeight;  
-  
-      const maxLeft = containerWidth - btnWidth;  
-      const maxTop = containerHeight - btnHeight;  
-  
-      const newLeft = Math.random() * maxLeft;  
-      const newTop = Math.random() * maxTop;  
-  
-      btn.style.left = newLeft + "px";  
-      btn.style.top = newTop + "px";  
-    }  
-  
-  function playVideo() {
-    // Qırmızı düyməni gizlə
-    document.querySelector(".no-btn").style.display = "none";
-    
-    // Videonu göstər
-    document.getElementById('video').style.display = 'block';
-  }
-  </script>  </body>  
+  <div id="video">
+    <video controls autoplay>
+      <source src="video.mp4" type="video/mp4">
+      Videonu brauzeriniz dəstəkləmir.
+    </video>
+  </div>
+
+  <script>
+    function moveButton(btn) {
+      const bodyWidth = window.innerWidth;
+      const bodyHeight = window.innerHeight;
+      const btnWidth = btn.offsetWidth;
+      const btnHeight = btn.offsetHeight;
+
+      const newLeft = Math.random() * (bodyWidth - btnWidth);
+      const newTop = Math.random() * (bodyHeight - btnHeight);
+
+      btn.style.position = "absolute";
+      btn.style.left = newLeft + "px";
+      btn.style.top = newTop + "px";
+    }
+
+    function playVideo() {
+      document.getElementById("video").style.display = "block";
+      document.querySelector(".no-btn").style.display = "none"; // Qırmızı düyməni gizlə
+    }
+  </script>
+</body>
 </html>
