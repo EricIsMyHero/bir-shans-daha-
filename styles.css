@@ -55,7 +55,7 @@ footer {
     margin-top: 60px; /* Bu dəyər fixed olduqda işləmir, onu silmək olar. */
 }
 footer a {
-    color: #f48fb1;
+    color: transparent;
 }
 #video {
     margin-top: 30px;
