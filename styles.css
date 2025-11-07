@@ -39,14 +39,20 @@ h1 {
     color: white;
 }
 footer {
-    /* Düzəliş: Sabit position: relative-i çıxarın, axını pozmasın */
-    margin-top: 60px; 
+    /* Məcburi ən aşağıda yerləşdirmə */
+    position: fixed; 
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Bütün eni tutsun */
     padding: 20px 10px;
     background-color: #111;
     color: #ccc;
     text-align: center;
-    /* position: relative; və z-index: 1; lazım deyil */
-    font-size: 14px; /* Mobil üçün kiçik ölçü */
+    font-size: 14px; 
+    /* Z-index vacibdir ki, digər elementlərin üstündə görünsün */
+    z-index: 100; 
+    /* (Digər əvvəlki stilləriniz də burada qalır) */
+    margin-top: 60px; /* Bu dəyər fixed olduqda işləmir, onu silmək olar. */
 }
 footer a {
     color: #f48fb1;
