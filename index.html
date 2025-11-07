@@ -36,11 +36,8 @@
     btn.style.left = newLeft + "px";
     btn.style.top = newTop + "px";
     
-    // Əlavə Təkmilləşdirmə: Düymənin görünüşünü dəyişin
-    // Hərəkətdə ölçünü azaldın və rəng çalarını dəyişin
+    // Yalnız Ölçü Dəyişikliyi: Düymənin ölçüsünü azaldın
     btn.style.transform = `scale(0.98)`;
-    // Təsadüfi rəng dəyişikliyi (hər dəfə fərqli görünür)
-    btn.style.filter = `hue-rotate(${Math.random() * 360}deg)`; 
     
     // 300ms sonra ölçünü bərpa edin (optik effekt üçün)
     setTimeout(() => {
