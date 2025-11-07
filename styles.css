@@ -56,18 +56,20 @@ footer a {
     display: none;
 }
 video {
-    /* Mütləq max-width: 100% istifadə edin */
+    /* Mobil cihazlarda tam eni tutması üçün */
     max-width: 100%; 
     height: auto;
     border-radius: 12px;
     box-shadow: 0 0 20px #c2185b;
 }
-/* --- Media Sorğusu (Kompüter və Tablet üçün) --- */
+
+/* 768px-dan böyük ekranlar üçün (Kompüter/Tablet) */
 @media screen and (min-width: 768px) {
-    body {
-        /* Kompüter üçün yuxarı padding-i artırın */
-        padding-top: 100px; 
+    video {
+        /* Kompüterdə videonun maksimal eni 700px olsun */
+        max-width: 700px; 
     }
+}
     h1 {
         /* Kompüter üçün şrift ölçüsünü artırın */
         font-size: 30px; 
