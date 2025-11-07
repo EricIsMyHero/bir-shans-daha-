@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Səni incitdiyimi bilirəm. Barışa bilərik, gözəl qız?</h1>
+  <h1 id="basliq">Səni incitdiyimi bilirəm. Barışa bilərik, gözəl qız?</h1>
 
   <div class="buttons">
     <button class="yes-btn" onclick="playVideo()">Təbii ki</button>
@@ -37,6 +37,10 @@
     }
 
     function playVideo() {
+      // Başlığı silin
+      document.getElementById("basliq").style.display = "none"; 
+      
+      // Video göstərin və düymələri gizlədin
       document.getElementById("video").style.display = "block";
       document.querySelector(".no-btn").style.display = "none";
       document.querySelector(".yes-btn").style.display = "none";
