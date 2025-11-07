@@ -1,72 +1,104 @@
 <!DOCTYPE html>
 <html lang="az">
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
   <title>Barışaq?</title>
   <style>
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    /* Düzəliş: Daha çox responsive olması üçün vh istifadə edin */
+    padding-top: 10vh;
+    padding-bottom: 50px; /* Aşağı boşluq əlavə edin */
+    margin: 0; /* Boşluqları sıfırlayın */
+}
+h1 {
+    /* Düzəliş: Mobil üçün daha kiçik şrift ölçüsü */
+    font-size: 24px;
+    margin-bottom: 30px;
+    padding: 0 10px; /* Kənar boşluq əlavə edin */
+}
+.buttons {
+    margin-top: 20px;
+}
+.buttons button {
+    /* Düzəliş: Mobil üçün padding azaldın */
+    padding: 12px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    /* Mobil cihazlarda düymələrin üst-üstə düşməməsi üçün marjini azaldın */
+    margin: 5px 8px; 
+    /* Düymələrin tam eni tutması üçün display: block istifadə edə bilərsiniz, lakin bu dizaynda inline-block yaxşıdır */
+    display: inline-block;
+}
+.yes-btn {
+    background-color: #4caf50;
+    color: white;
+}
+.no-btn {
+    background-color: #f44336;
+    color: white;
+}
+footer {
+    /* Düzəliş: Sabit position: relative-i çıxarın, axını pozmasın */
+    margin-top: 60px; 
+    padding: 20px 10px;
+    background-color: #111;
+    color: #ccc;
+    text-align: center;
+    /* position: relative; və z-index: 1; lazım deyil */
+    font-size: 14px; /* Mobil üçün kiçik ölçü */
+}
+footer a {
+    color: #f48fb1;
+}
+#video {
+    margin-top: 30px;
+    display: none;
+}
+video {
+    /* Mütləq max-width: 100% istifadə edin */
+    max-width: 100%; 
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 0 20px #c2185b;
+}
+/* --- Media Sorğusu (Kompüter və Tablet üçün) --- */
+@media screen and (min-width: 768px) {
     body {
-      background-color: #000;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding-top: 100px;
+        /* Kompüter üçün yuxarı padding-i artırın */
+        padding-top: 100px; 
     }
-
     h1 {
-      font-size: 30px;
-      margin-bottom: 40px;
+        /* Kompüter üçün şrift ölçüsünü artırın */
+        font-size: 30px; 
+        margin-bottom: 40px;
     }
-
     .buttons {
-      margin-top: 30px;
+        margin-top: 30px;
     }
 
     .buttons button {
-      padding: 15px 30px;
-      font-size: 16px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.3s;
-      margin: 0 10px;
-    }
-
-    .yes-btn {
-      background-color: #4caf50;
-      color: white;
-    }
-
-    .no-btn {
-      background-color: #f44336;
-      color: white;
-    }
-
+        /* Kompüter üçün düymə padding-i artırın */
+        padding: 15px 30px; 
+        font-size: 16px;
+        margin: 0 10px;
+    
     footer {
-      margin-top: 80px;
-      padding: 20px;
-      background-color: #111;
-      color: #ccc;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-      font-size: 16px;
+        margin-top: 80px;
+        font-size: 16px; 
     }
-
-    footer a {
-      color: #f48fb1;
-    }
-
-    #video {
-      margin-top: 40px;
-      display: none;
-    }
-
     video {
-      max-width: 90%;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 0 20px #c2185b;
+        /* Kompüterdə videonun maksimal eni */
+        max-width: 700px; 
     }
+}
   </style>
 </head>
 <body>
